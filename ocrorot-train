@@ -119,8 +119,8 @@ utils.print_sample(sample)
 
 if args.ntrain >= 0:
     ntrain = args.ntrain
-print "ntrain", ntrain
-print model
+print(f"ntrain {ntrain}")
+print(model)
 
 start_count = 0
 
@@ -159,16 +159,17 @@ for sample in source:
         pass
     except Exception, e:
         utils.print_sample(sample)
-        print e
+        print(e)
         continue
     losses.append(loss)
-    print nbatches, ntrain, loss, np.amin(output), np.amax(output), "lr", lr,
-    print output[0], cls[0]
+    print("{nbatches} {ntrain} {loss} {np.amin(output)} {np.amax(output)} \"lr\" {lr}")
+    print("{output[0]} {cls[0]}")
+
     if nbatches > 0 and nbatches % args.save_every == 0:
         err = float(np.mean(losses[-args.save_every:]))
         fname = paths.make_save_path(args.output, ntrain, err)
         torch.save(model, fname)
-        print "saved", fname
+        print("saved {fname}")
     if nbatches % 10 == 0:
         clf()
         title(str(output[0]))
