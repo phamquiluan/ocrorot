@@ -76,10 +76,10 @@ if args.output:
 
 mname = paths.find_file(model_path, args.model)
 assert mname is not None, "model not found"
-print "loading", mname
+print("loading {mname}")
 
 sk = ocrorot.SkewEstimator(mname)
-print sk.model
+print(sk.model)
 
 
 def display_batch(image, output):
@@ -98,7 +98,7 @@ for i, sample in enumerate(source):
     fname = sample["__key__"]
     image = sample["input"]
     output = sk.skew(image)
-    print i, fname, output
+    print("{i} {fname} {output}")
     if args.output:
         if angle != 0.0:
             corrected = ndi.rotate(image, -output, order=1)
