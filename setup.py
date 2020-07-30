@@ -29,7 +29,7 @@ ocroskew-pred
 
 setup(
     name='ocrorot',
-    version='v0.0',
+    version='v0.0.1',  # semver
     author="Thomas Breuel",
     description="Page rotation detection/correction.",
     packages=["ocrorot"],
