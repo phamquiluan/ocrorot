@@ -18,7 +18,7 @@ models = ["rot-000003456-020897.pt", "logskew-000015808-000132.pt"]
 for model in models:
     if not os.path.exists(model):
         print(f"downloading {remote + model}")
-        urllib.URLopener().retrieve(remote+model, model)
+        urllib.URLopener().retrieve(remote + model, model)
 
 scripts = """
 ocrorot-train
@@ -28,11 +28,11 @@ ocroskew-pred
 """.split()
 
 setup(
-    name='ocrorot',
-    version='v0.0.1',  # semver
+    name="ocrorot",
+    version="v0.0.1",  # semver
     author="Thomas Breuel",
     description="Page rotation detection/correction.",
     packages=["ocrorot"],
     scripts=scripts,
-    data_files=[("share/ocrorot", models)]
+    data_files=[("share/ocrorot", models)],
 )
