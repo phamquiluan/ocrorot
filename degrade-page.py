@@ -108,7 +108,6 @@ data = gopen.open_source(args.input)
 sink = gopen.open_sink(args.output)
 
 for sample in data:
-    print
     utils.print_sample(sample)
     page = sample["framed.png"]
     trs, _ = random_trs()
