@@ -17,7 +17,7 @@ remote = "https://storage.googleapis.com/tmb-models/"
 models = ["rot-000003456-020897.pt", "logskew-000015808-000132.pt"]
 for model in models:
     if not os.path.exists(model):
-        print("downloading", remote+model)
+        print(f"downloading {remote + model}")
         urllib.URLopener().retrieve(remote+model, model)
 
 scripts = """
